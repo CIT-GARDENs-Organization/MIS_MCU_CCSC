@@ -1,16 +1,1 @@
-.DS_Store
 
-# CCS-C
-__history/
-*.cof
-*.err
-*.esym
-*.hex
-*.lst
-*.STA
-*.sym
-*.tre
-*.xsym
-
-# vscode
-.vscode/
