@@ -1,6 +1,6 @@
 <div align="center">
     <img src="https://github.com/user-attachments/assets/099b80dd-a6a5-4a14-940f-06401dadf024" width="200" alt="GARDENs logo" />
-   <h1>MIS MCU source(PIC)</h1>
+   <h1>MIS MCU (PIC)</h1>
 </div>
 
 ## 概要  
