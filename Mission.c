@@ -4,17 +4,17 @@
 
 void execute_mission(unsigned int8 *content)
 {
-   // timer update
-   update_time(content);
-   fprintf(PC, "\r\nUpdate the time setting\r\n");
-   fprintf(PC, "\t-> Day: \t%lu\r\n", day);
-   fprintf(PC, "\t-> Hour: \t%lu\r\n", sec / 3600);
-   fprintf(PC, "\t-> Minute: \t%lu\r\n", (sec / 60) % 60);
-   fprintf(PC, "\t-> Second: \t%lu\r\n", sec % 60);
-   
+//!   // timer update
+//!   update_time(content);
+//!   fprintf(PC, "\r\nUpdate the time setting\r\n");
+//!   fprintf(PC, "\t-> Day: \t%lu\r\n", day);
+//!   fprintf(PC, "\t-> Hour: \t%lu\r\n", sec / 3600);
+//!   fprintf(PC, "\t-> Minute: \t%lu\r\n", (sec / 60) % 60);
+//!   fprintf(PC, "\t-> Second: \t%lu\r\n", sec % 60);
+//!   
    // record to executed mission list
-   unsigned int8 command_id = content[4];
-   unsigned int8 *parameter = &content[5];
+   unsigned int8 command_id = content[0];
+   unsigned int8 *parameter = &content[1];
    for (int i = 0; i < executed_mission_count; i++)
       if (command_id == executed_mission[i])
       {
