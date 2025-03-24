@@ -54,14 +54,6 @@ void enqueue_smf_data(unsigned int32 src, unsigned int32 dest, unsigned int32 si
 void executed_mission_pop(void);
 ```
 
-### 使用可能なグローバル変数
-> [!CAUTION]
-> 参照は許可するが、値の変更は禁止する。
-- 時間系
-  - `dsec` → deci secondsの意。10分の1秒。常にTIMER0割り込みで更新される。
-  - `sec` → secondsの意。常にTIMER0割り込みで更新される。Uplink command受信時、RESET PICから配信される衛星内経過時間に更新される。
-  - `day` → 変数名そのままの意。sec同様である。
-
 ---
 
 ## 今後の更新予定 (作業担当者: GARDENs)
