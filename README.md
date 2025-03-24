@@ -47,16 +47,12 @@ void enqueue_smf_data(unsigned int32 src, unsigned int32 dest, unsigned int32 si
 - センサリング系のミッションで厳密な測定結果を要する場合、**TIMER0**割り込みを無効化して構わない。
 - **INT_RDA**割り込みの無効化は、BOSS PICがMIS MCUの異常終了とみなしてしまうため禁止する。
 
----
-
 ### **ミッション連続実行**
 - MIS MCUは、地上局からの連続アップリンクで誤動作しないようにするため同じミッションをその機器の起動中に実行しないようにしている。
 　- もし、意図的に連続で実行したい、する予定ミッションがある場合、そのミッションで以下の関数を実行する
 ```
 void executed_mission_pop(void);
 ```
-
----
 
 ### 使用可能なグローバル変数
 > [!CAUTION]
