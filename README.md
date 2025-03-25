@@ -39,6 +39,7 @@
 ```
 void enqueue_smf_data(unsigned int32 src, unsigned int32 dest, unsigned int32 size);
 ```
+(引数の順序を将来的に `dest, src, size`に統一する予定である(一般的なC言語への統一として))
 - src  → 各々のフラッシュメモリーがもつ、コピーする保存領域の開始アドレス
 - dest → SMFへのコピー先の開始アドレス
 - size → コピーするデータサイズ
