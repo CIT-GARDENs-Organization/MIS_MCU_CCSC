@@ -1,3 +1,4 @@
+#include "../mission_tools.h"
 //____________ main mission function _______________
 
 void execute_mission(unsigned int8 *content)
@@ -22,7 +23,7 @@ void execute_mission(unsigned int8 *content)
    if (executed_mission_count != EXECUTED_MISSION_SIZE)
       executed_mission[executed_mission_count++] = command_id;
    else
-      fprintf(PC, "[WARN]  overflow executed_mission list");
+      fprintf(PC, "overflow executed_mission list");
    
    
    // execution mission
@@ -64,22 +65,23 @@ void example_00(unsigned int8 parameter[])
    // anything do
    fprintf(PC, "executing");
    delay_ms(1000);
-   fprintf(PC, ".");
-   delay_ms(1000);
-   fprintf(PC, ".");
-   delay_ms(1000);
-   fprintf(PC, ".");
-   delay_ms(1000);
-   fprintf(PC, ".");
-   delay_ms(1000);
+   for (int8 i = 0; i < 5; i++)
+   {
+      fprintf(PC, ".");
+      delay_ms(1000);
+   }
    fprintf(PC, ".\r\n");
    
    // order Copy to SMF data
    fprintf(PC, "order Copy smf_data\r\n");
-   unsigned int32 smf_data_source_address = 0x00005000; // (in self Flash memory)
    unsigned int32 smf_data_destination_address = 0x00103D00; // (in SMF)
+   unsigned int32 fm_data_source_address = 0x00005000; // (in self Flash memory)
    unsigned int32 data_size = 0x00000080;
-   enqueue_smf_data(smf_data_destination_address, smf_data_source_address, data_size);
+   SmfDataStruct data;
+   data.dest = smf_data_destination_address;
+   data.src = fm_data_source_address;
+   data.size = data_size;
+   enqueue_smf_data(&data);
    
    fprintf(PC, "End example_00\r\n");
    

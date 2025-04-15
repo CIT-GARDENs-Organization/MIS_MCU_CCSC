@@ -1,18 +1,13 @@
 #ifndef DEFINE_H
 #define DEFINE_H
 
-//__________ Timer _________
-#define SEC_IN_A_DAY 86400
+// ____________ Start Frame Delimiter _________
 
-// __________ Receive signal buffer _______
-
-#define RECEIVE_BUFFER_MAX 32
-
-
-//__________ Start Frame Delimiter _________
 #define SFD 0xAA
 
+
 //_____________ Device IDs ____________
+
 #define MAIN_PIC  0x00
 #define COM_PIC   0x01
 #define RESET_PIC 0x02
@@ -40,13 +35,8 @@
 
 #define RECEIVE_FRAME_KINDS 3
 
-// _________________ content length _____________
-
-#define CONTENT_MAX 32
-
 
 //____________ Receive Frame IDs ____________
-
 
 #define MIS_MCU_STATUS 0x01
 #define ACK            0x0F
@@ -67,20 +57,6 @@ typedef enum {
     ALLOW = 0x00,
     DENY  = 0x01
 } IsSmfAvailableContent;
-
-
-// ________ Mission ______
-
-#define EXECUTED_MISSION_SIZE 64
-
-#define PARAMETER_LENGTH 8
-
-
-// _________________ SMF _____________
-
-#define SMF_DATA_SIZE 16
-
-
 
 
 #endif

@@ -1,0 +1,119 @@
+Command make_receive_command(unsigned int8 receive_signal[], int8 receive_signal_size)
+{
+   Command command = {0, {0x00}, 0, FALSE};
+   fprintf(PC, "Start make_receive_command\r\n\t-> ");
+   for (int8 i = 0; i < receive_signal_size; i++)
+      fprintf(PC, "%X ", receive_signal[i]);
+   fprintf(PC, "\r\n");
+
+   int8 frame_start_position = trim_receive_signal_header(receive_signal, receive_signal_size);
+   if (frame_start_position == -1)
+      return command;
+      
+   unsigned int8 *frame = &receive_signal[frame_start_position];
+   
+   int8 frame_id = frame[0] & 0x0F;
+   int8 content_size = get_content_size(frame_id);
+   if (content_size == -1)
+      return command;
+      
+   int8 receive_frame_size = receive_signal_size - frame_start_position;
+   
+   if (!check_crc(frame, receive_frame_size))
+      return command;
+   
+   if(!check_device_id((frame[0] & 0xF0) >> 4))
+      return command;
+
+   command.frame_id = frame_id;
+   memcpy(command.content, &frame[1], receive_frame_size-2); // '2' is for Decive ID, Frame ID and CRC
+   command.size = receive_frame_size-2;
+   command.is_exist = TRUE;
+   fprintf(PC, "End make_recive_command\r\n");
+   return command;
+}
+
+void transmit_ack()
+{
+   transmit_command(ACK, 0, 0);
+}
+
+void transmit_status()
+{
+   transmit_command(MIS_MCU_STATUS, &status, 1);
+}
+
+void check_and_respond_to_boss()
+{
+   if (kbhit())
+   {
+      fgetc(BOSS);
+      transmit_status();
+   }
+}
+
+int1 req_use_smf()
+{
+   fprintf(PC, "Start SMF using reqest seaquence\r\n");
+   status = SMF_USE_REQ;
+   is_use_smf_req_in_mission = TRUE;
+   
+   while (TRUE)
+   {
+      for (int16 i = 0; i < 1200; i++) // 10 min
+      {
+         if (boss_receive_buffer_size > 0)
+         {
+            Command command = make_receive_command(boss_receive_buffer, boss_receive_buffer_size);
+            clear_receive_signal(boss_receive_buffer, &boss_receive_buffer_size);
+            if (command.frame_id == STATUS_CHECK)
+            {
+               transmit_status();
+               break;
+            }
+            else
+            {
+               fprintf(PC, "Error! Receiving command inconsistent with the design\r\n");
+            }
+         }
+         delay_ms(500);
+      }
+      
+      for (int16 i = 0; i < 1200; i++) // 10 min
+      {
+         if (boss_receive_buffer_size > 0)
+         {
+            Command command = make_receive_command(boss_receive_buffer, boss_receive_buffer_size); 
+            clear_receive_signal(boss_receive_buffer, &boss_receive_buffer_size);
+            if (command.frame_id == IS_SMF_AVAILABLE)
+            {
+               if (command.content[0] == ALLOW)
+               {
+                  fprintf(PC, "SMF use request allowed\r\n");
+                  transmit_ack();
+                  goto NEXT;
+               }
+               else
+               {
+                  fprintf(PC, "SMF use request denyed\r\n");
+                  fprintf(PC, "Retry request to BOSS PIC\r\n");
+                  transmit_ack();
+                  break;
+               }
+            }
+            else
+            {
+               fprintf(PC, "Error! Receiving command inconsistent with the design\r\n");
+            }
+         }
+         delay_ms(500);
+      }
+   }
+   
+NEXT:
+   is_use_smf_req_in_mission = FALSE;
+   status = COPYING;
+   return TRUE;
+   fprintf(PC, "End SMF using reqest seaquence\r\n");
+}
+

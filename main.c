@@ -1,6 +1,8 @@
 #include "./lib/main.h"
 
 //____________ intrrupts ____________
+
+#define SEC_IN_A_DAY 86400
 #INT_TIMER0
 void TIMER0_isr(void) 
 {
@@ -30,12 +32,16 @@ void RDA_isr(void)
       else
       {
          fprintf(PC, "\r\nOverflow BOSS receive signal buffer!!!\r\n\r\n");
-         fgetc(BOSS);
+         boss_receive_buffer[RECEIVE_BUFFER_MAX-1] = fgetc(BOSS);
       }
    }
 }
 
-
+void clear_receive_signal(unsigned int8 receive_signal[], int8 *receive_signal_size)
+{
+   memset(receive_signal, 0x00, *receive_signal_size);
+   *receive_signal_size = 0;
+}
 
 
 //____________ initialize ____________

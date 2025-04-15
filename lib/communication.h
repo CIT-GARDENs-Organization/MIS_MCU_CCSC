@@ -1,6 +1,30 @@
 #ifndef COMMUNICATION_H
 #define COMMUNICATION_H
 
+#include "define.h"
+
+
+typedef struct {
+    int8 id;
+    int8 length;
+} FrameID;
+
+
+#define CONTENT_MAX 32
+typedef struct {
+    int8 frame_id;
+    unsigned int8 content[CONTENT_MAX];
+    int8 size;
+    int1 is_exist;
+} Command;
+
+
+const FrameID frame_ids[RECEIVE_FRAME_KINDS] = {
+    {UPLINK_COMMAND, UPLINK_COMMAND_LENGTH}, 
+    {STATUS_CHECK, STATUS_CHECK_LENGTH}, 
+    {IS_SMF_AVAILABLE, IS_SMF_AVAILABLE_LENGTH}
+};
+
 // ______ Receive _______
 
 Command make_receive_command(unsigned int8 receive_signal[], int8 receive_signal_size);

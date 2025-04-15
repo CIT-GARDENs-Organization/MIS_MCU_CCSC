@@ -8,16 +8,16 @@
 #include "config.h"
 
 #include "define.h"
-#include "typedef.h"
 #include "value.h"
 
 // SerialCommunication
-#include "communication_mis_mcu.h"
+#include "communication_driver.h"
 
 // Missions
 #include "mission.h"
 
 // Copy to SMF
 #include "data_copy.h"
+
 
 #endif

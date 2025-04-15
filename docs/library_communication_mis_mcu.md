@@ -9,8 +9,12 @@
 「<span style="color:red;">+</span>」: 外部ファイルからアクセス可能な関数<br>
 「<span style="color:blue;">-</span>」: 内部専用関数
 
-1. <span style="color:red;">+</span>void trasnsmit_ack()
-2. <span style="color:red;">+</span>void transmit_command()
+1. <span style="color:red;">+</span>Command make_receive_command(unsigned int8 receive_signal[], int8 receive_signal_size);
+2. <span style="color:red;">+</span>void transmit_ack();
+3. <span style="color:red;">+</span>void transmit_status();
+4. <span style="color:red;">+</span>void check_and_respond_to_boss();
+5. <span style="color:red;">+</span>int1 req_use_smf();
+
 
 
 ## 3. 関数詳細
