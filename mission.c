@@ -1,30 +1,18 @@
-#include "../mission_tools.h"
 //____________ main mission function _______________
 
 void execute_mission(unsigned int8 *content)
 {
-//!   // timer update
-//!   update_time(content);
-//!   fprintf(PC, "\r\nUpdate the time setting\r\n");
-//!   fprintf(PC, "\t-> Day: \t%lu\r\n", day);
-//!   fprintf(PC, "\t-> Hour: \t%lu\r\n", sec / 3600);
-//!   fprintf(PC, "\t-> Minute: \t%lu\r\n", (sec / 60) % 60);
-//!   fprintf(PC, "\t-> Second: \t%lu\r\n", sec % 60);
-//!   
    // record to executed mission list
    unsigned int8 command_id = content[0];
    unsigned int8 *parameter = &content[1];
-   for (int i = 0; i < executed_mission_count; i++)
-      if (command_id == executed_mission[i])
-      {
-         fprintf(PC, "\r\nThis  mission is executed\r\n\t-> 0x%d\r\n", command_id);
-         return;
-      }
-   if (executed_mission_count != EXECUTED_MISSION_SIZE)
-      executed_mission[executed_mission_count++] = command_id;
-   else
-      fprintf(PC, "overflow executed_mission list");
    
+   if (is_executed_mission(command_id))
+   {
+      fprintf(PC, "\r\nThis  mission is executed\r\n\t-> 0x%d\r\n", command_id);
+      return;
+   }
+   
+   add_executed_mission(command_id);
    
    // execution mission
    fprintf(PC, "\r\n______________________________\r\n_____Start execute_mission_____\r\n\r\n");

@@ -1,0 +1,30 @@
+ExecutedMissio get_executed_mission()
+{
+   static ExecutedMissio executed_mission = {0};
+   return executed_mission;
+}
+
+void finished_use_smf()
+{
+   status = EXECUTING_MISSION;
+}
+
+void executed_mission_pop(void)
+{
+   ExecutedMission executed_mission = get_executed_mission();
+   executed_mission.executed_mission[executed_mission.executed_mission_count--] = 0x00;
+}
+
+void continue_mis_mcu(int16 duration_second)
+{  
+   duration_sec = duration_second + sec;
+}
+
+void check_and_respond_to_boss()
+{
+   if (kbhit())
+   {
+      fgetc(BOSS);
+      transmit_status();
+   }
+}

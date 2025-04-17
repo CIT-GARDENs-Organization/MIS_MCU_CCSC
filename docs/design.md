@@ -19,34 +19,27 @@ graph TD
         利用者 --> 提供元
     end
 
-    subgraph ミッション実行機能
-        direction RL
-        mission --> mission_tools
+    subgraph 割り込み
+        main --> uart
+        main --> timer
     end
-    
-    mission --> flash
-
-
-    subgraph SMFへのコピー機能
-        direction LR
-        data_copy
-    end
- data_copy --> flash
-    subgraph 機器通信機能
-        direction TB
-        communication_driver --> communication
-    end
-
 
     main --> communication_driver
     main --> mission
     main --> data_copy
 
-        mission_tools --> communication_driver
+
+    mission --> mission_tools
+    mission --> flash
     mission --> smf_queue
 
+    mission_tools --> communication_driver
+
+    data_copy --> flash
     data_copy ----> communication_driver
     data_copy --> smf_queue
+
+    communication_driver --> communication
 ```
 
 - communication         ... 機器共通の通信機能

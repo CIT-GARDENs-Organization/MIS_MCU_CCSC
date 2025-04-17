@@ -1,30 +1,56 @@
-ExecutedMission get_executed_mission()
+Command make_receive_command(unsigned int8 receive_signal[], int8 receive_signal_size)
 {
-   static ExecutedMission executed_mission = {0};
-   return executed_mission;
-}
+   Command command = {0, {0x00}, 0, FALSE};
+   fprintf(PC, "Start make_receive_command\r\n\t-> ");
+   for (int8 i = 0; i < receive_signal_size; i++)
+      fprintf(PC, "%X ", receive_signal[i]);
+   fprintf(PC, "\r\n");
 
-int1 is_executed_mission(unsigned int8 command_id)
-{
-   ExecutedMission executed_mission = get_executed_mission();
-   
-   for (int i = 0; i < executed_mission.executed_mission_count; i++)
-      if (command_id == executed_mission.executed_mission[i])
-         return TRUE;
+   int8 frame_start_position = trim_receive_signal_header(receive_signal, receive_signal_size);
+   if (frame_start_position == -1)
+      return command;
       
-   return FALSE;
-}
-
-void add_executed_mission(unsigned int8 command_id)
-{
-   ExecutedMission executed_mission = get_executed_mission();
+   unsigned int8 *frame = &receive_signal[frame_start_position];
    
-   if (executed_mission.executed_mission_count != EXECUTED_MISSION_SIZE)
-      executed_mission.executed_mission[executed_mission.executed_mission_count++] = command_id;
-   else
-      fprintf(PC, "!!!overflow executed_mission list\r\n");
+   int8 frame_id = frame[0] & 0x0F;
+   int8 content_size = get_content_size(frame_id);
+   if (content_size == -1)
+      return command;
+      
+   int8 receive_frame_size = receive_signal_size - frame_start_position;
+   
+   if (!check_crc(frame, receive_frame_size))
+      return command;
+   
+   if(!check_device_id((frame[0] & 0xF0) >> 4))
+      return command;
+
+   command.frame_id = frame_id;
+   memcpy(command.content, &frame[1], receive_frame_size-2); // '2' is for Decive ID, Frame ID and CRC
+   command.size = receive_frame_size-2;
+   command.is_exist = TRUE;
+   fprintf(PC, "End make_recive_command\r\n");
+   return command;
 }
 
+void transmit_ack()
+{
+   transmit_command(ACK, 0, 0);
+}
+
+void transmit_status()
+{
+   transmit_command(MIS_MCU_STATUS, &status, 1);
+}
+
+void check_and_respond_to_boss()
+{
+   if (kbhit())
+   {
+      fgetc(BOSS);
+      transmit_status();
+   }
+}
 
 int1 req_use_smf()
 {
@@ -91,28 +117,3 @@ NEXT:
    fprintf(PC, "End SMF using reqest seaquence\r\n");
 }
 
-
-void finished_use_smf()
-{
-   status = EXECUTING_MISSION;
-}
-
-void executed_mission_pop(void)
-{
-   ExecutedMission executed_mission = get_executed_mission();
-   executed_mission.executed_mission[executed_mission.executed_mission_count--] = 0x00;
-}
-
-void continue_mis_mcu(int16 duration_second)
-{  
-   duration_sec = duration_second + sec;
-}
-
-void check_and_respond_to_boss()
-{
-   if (kbhit())
-   {
-      fgetc(BOSS);
-      transmit_status();
-   }
-}

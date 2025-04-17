@@ -25,7 +25,6 @@ void add_executed_mission(unsigned int8 command_id)
       fprintf(PC, "!!!overflow executed_mission list\r\n");
 }
 
-
 int1 req_use_smf()
 {
    fprintf(PC, "Start SMF using reqest seaquence\r\n");

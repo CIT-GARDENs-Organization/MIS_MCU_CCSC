@@ -1,3 +1,9 @@
+//!SmfQueueStruct *get_smf_queue()
+//!{
+//!   static SmfQueueStruct smf_queue = {0};
+//!   return smf_queue;
+//!}
+
 void enqueue_smf_data(SmfDataStruct *data)
 {   
    int8 next_tail = (smf_queue.smf_data_tail + 1) % SMF_DATA_SIZE;

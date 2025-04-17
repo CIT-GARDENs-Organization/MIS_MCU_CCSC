@@ -1,58 +1,14 @@
-#include "./lib/main.h"
+#include "./main.h"
 
-//____________ intrrupts ____________
-
-#define SEC_IN_A_DAY 86400
-#INT_TIMER0
-void TIMER0_isr(void) 
-{
-   // every 0.01 sec interrupts
-   set_timer0(100);
-
-   if (++subsec >= 100)
-   {
-      subsec = 0;
-      sec++;
-
-      if (sec >= SEC_IN_A_DAY)
-      {
-         sec -= SEC_IN_A_DAY;
-         day++;
-      }
-   }
-}
-
-#INT_RDA
-void RDA_isr(void)
-{
-   if (!(status == EXECUTING_MISSION || status == COPYING) || is_use_smf_req_in_mission)
-   {
-      if (boss_receive_buffer_size < RECEIVE_BUFFER_MAX)
-         boss_receive_buffer[boss_receive_buffer_size++] = fgetc(BOSS);
-      else
-      {
-         fprintf(PC, "\r\nOverflow BOSS receive signal buffer!!!\r\n\r\n");
-         boss_receive_buffer[RECEIVE_BUFFER_MAX-1] = fgetc(BOSS);
-      }
-   }
-}
-
-void clear_receive_signal(unsigned int8 receive_signal[], int8 *receive_signal_size)
-{
-   memset(receive_signal, 0x00, *receive_signal_size);
-   *receive_signal_size = 0;
-}
-
-
-//____________ initialize ____________
 
 void initialize(void)
 {
    fprintf(PC, "Start setting\r\n");
    setup_lcd(LCD_DISABLED);
-   setup_timer_0(T0_INTERNAL | T0_DIV_256 | RTCC_8_BIT);
-   enable_interrupts(INT_RDA);
-   enable_interrupts(INT_TIMER0);
+   
+   setup_timer();
+   setup_uart_to_boss();
+
    enable_interrupts(GLOBAL);
    fprintf(PC, "End setting\r\n");
 }
@@ -138,7 +94,7 @@ void main()
       // handle from boss commands
       if(boss_receive_buffer_size > 0)
       {
-         Command command = make_receive_command(boss_receive_buffer, boss_receive_buffer_size);
+         Command command = make_command(boss_receive_buffer, boss_receive_buffer_size);
          clear_receive_signal(boss_receive_buffer, &boss_receive_buffer_size);
             
          if(command.is_exist)

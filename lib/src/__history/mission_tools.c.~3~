@@ -1,0 +1,25 @@
+typedef struct {
+   unsigned int8 executed_mission[EXECUTED_MISSION_SIZE] = {0x00};
+   int8 executed_mission_count = 0;
+} ExecutedMission;
+
+ExecutedMission get_executed_mission()
+{
+   ExecutedMission executed_mission = {0};
+   return executed_mission;
+}
+
+void finished_use_smf()
+{
+   status = EXECUTING_MISSION;
+}
+
+void executed_mission_pop(void)
+{
+   executed_mission[executed_mission_count--] = 0x00;
+}
+
+void continue_mis_mcu(int16 duration_second)
+{  
+   duration_sec = duration_second + sec;
+}

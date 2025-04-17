@@ -1,30 +1,17 @@
-ExecutedMission get_executed_mission()
+Command make_command(unsigned int8 receive_signal[], int8 receive_signal_size)
 {
-   static ExecutedMission executed_mission = {0};
-   return executed_mission;
+   return make_receive_command(receive_signal, receive_signal_size);
 }
 
-int1 is_executed_mission(unsigned int8 command_id)
+void transmit_ack()
 {
-   ExecutedMission executed_mission = get_executed_mission();
-   
-   for (int i = 0; i < executed_mission.executed_mission_count; i++)
-      if (command_id == executed_mission.executed_mission[i])
-         return TRUE;
-      
-   return FALSE;
+   transmit_command(ACK, 0, 0);
 }
 
-void add_executed_mission(unsigned int8 command_id)
+void transmit_status()
 {
-   ExecutedMission executed_mission = get_executed_mission();
-   
-   if (executed_mission.executed_mission_count != EXECUTED_MISSION_SIZE)
-      executed_mission.executed_mission[executed_mission.executed_mission_count++] = command_id;
-   else
-      fprintf(PC, "!!!overflow executed_mission list\r\n");
+   transmit_command(MIS_MCU_STATUS, &status, 1);
 }
-
 
 int1 req_use_smf()
 {
@@ -91,28 +78,3 @@ NEXT:
    fprintf(PC, "End SMF using reqest seaquence\r\n");
 }
 
-
-void finished_use_smf()
-{
-   status = EXECUTING_MISSION;
-}
-
-void executed_mission_pop(void)
-{
-   ExecutedMission executed_mission = get_executed_mission();
-   executed_mission.executed_mission[executed_mission.executed_mission_count--] = 0x00;
-}
-
-void continue_mis_mcu(int16 duration_second)
-{  
-   duration_sec = duration_second + sec;
-}
-
-void check_and_respond_to_boss()
-{
-   if (kbhit())
-   {
-      fgetc(BOSS);
-      transmit_status();
-   }
-}

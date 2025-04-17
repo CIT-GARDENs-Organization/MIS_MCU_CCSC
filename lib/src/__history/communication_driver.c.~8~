@@ -3,6 +3,12 @@ Command make_command(unsigned int8 receive_signal[], int8 receive_signal_size)
    return make_receive_command(receive_signal, receive_signal_size);
 }
 
+void clear_receive_signal(unsigned int8 receive_signal[], int8 *receive_signal_size)
+{
+   memset(receive_signal, 0x00, *receive_signal_size);
+   *receive_signal_size = 0;
+}
+
 void transmit_ack()
 {
    transmit_command(ACK, 0, 0);

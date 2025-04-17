@@ -1,29 +1,50 @@
 [PROJECT]
-Target=main.hex
+Target=build\main.hex
 Processor_Text=PIC18F67J94
 CCSVerions=5.104
 Compiler=PCH
 CCSVersion=5.104
+Development_Mode=
+ToolSuite=CCS
 [Target Data]
 FileList=main.c
+BuildTool=C-COMPILER
+OptionString=+FH
+AdditionalOptionString=
+BuildRequired=1
 [Directories]
 Include=
+Library=
+LinkerScript=
+output=build\
 [C:\Users\ktya-\Desktop\UART_ccscproject\main]
 Type=4
 [mru-list]
-1=main.c
+1=build\main.c
 
 [fileformats]
 forcecoff=0
+debug=4
+error=2
+object=0
+list=0
+scratch=0
+sta=1
+tre=1
+expandtree=0
+allerrors=1
+allwarnings=1
+stayupne=3
+stayupoe=0
 
 [ProjectLog]
-Days=36
+Days=38
 D1=17-01-2024
 D1_L=4
 D1_L1=[59549]Project Opened.
 D1_L2=[59605]Started Editing.
 D1_L3=[60043]Stopped Editing.
-TotalEdit=3035
+TotalEdit=3237
 TotalDebug=0
 D1_E=3
 D1_D=0
@@ -823,48 +844,142 @@ D36_L6=[48035]Stopped Editing.
 D36_E=3
 D36_D=0
 D36_L7=[48035]Project Closed.
+D37=16-04-2025
+D37_L=46
+D37_L1=[43321]Project Opened.
+D37_L2=[43391]Project Closed.
+D37_L3=[43411]Project Opened.
+D37_L4=[43603]Started Editing.
+D37_L5=[43692]Stopped Editing.
+D37_E=107
+D37_D=0
+D37_L6=[50893]Project Opened.
+D37_L7=[50911]Project Closed.
+D37_L8=[50927]Project Opened.
+D37_L9=[50929]Project Closed.
+D37_L10=[51116]Project Opened.
+D37_L11=[51184]Project Closed.
+D37_L12=[51198]Project Opened.
+D37_L13=[51248]Started Editing.
+D37_L14=[51349]Stopped Editing.
+D37_L15=[51585]Started Editing.
+D37_L16=[51943]Stopped Editing.
+D37_L17=[53155]Started Editing.
+D37_L18=[53515]Stopped Editing.
+D37_L19=[54748]Started Editing.
+D37_L20=[55659]Stopped Editing.
+D37_L21=[55933]Started Editing.
+D37_L22=[56387]Stopped Editing.
+D37_L23=[56424]Started Editing.
+D37_L24=[61316]Stopped Editing.
+D37_L25=[61323]Started Editing.
+D37_L26=[62152]Stopped Editing.
+D37_L27=[62964]Started Editing.
+D37_L28=[63422]Stopped Editing.
+D37_L29=[63470]Project Closed.
+D37_L30=[67938]Project Opened.
+D37_L31=[67967]Started Editing.
+D37_L32=[68684]Stopped Editing.
+D37_L33=[69345]Started Editing.
+D37_L34=[69648]Stopped Editing.
+D37_L35=[71668]Started Editing.
+D37_L36=[72090]Stopped Editing.
+D37_L37=[72417]Started Editing.
+D37_L38=[72892]Stopped Editing.
+D37_L39=[72899]Started Editing.
+D37_L40=[73833]Stopped Editing.
+D37_L41=[74363]Started Editing.
+D37_L42=[75849]Stopped Editing.
+D37_L43=[81430]Started Editing.
+D37_L44=[81898]Stopped Editing.
+D37_L45=[85805]Started Editing.
+D37_L46=[86106]Stopped Editing.
+D38=17-04-2025
+D38_L=19
+D38_L1=[1804]Started Editing.
+D38_L2=[2514]Stopped Editing.
+D38_L3=[3686]Started Editing.
+D38_L4=[4546]Stopped Editing.
+D38_L5=[5303]Started Editing.
+D38_L6=[5653]Stopped Editing.
+D38_E=95
+D38_D=0
+D38_L7=[30457]Project Closed.
+D38_L8=[32879]Project Opened.
+D38_L9=[33192]Started Editing.
+D38_L10=[34395]Stopped Editing.
+D38_L11=[34589]Started Editing.
+D38_L12=[35536]Stopped Editing.
+D38_L13=[36127]Started Editing.
+D38_L14=[36433]Stopped Editing.
+D38_L15=[36433]Project Closed.
+D38_L16=[36471]Project Opened.
+D38_L17=[36592]Started Editing.
+D38_L18=[36912]Stopped Editing.
+D38_L19=[37615]Project Closed.
 
 [Opened Files]
 1=main.c
 t1=1
-Count=12
-2=lib\mission.h
+Count=11
+2=lib\uart.h
 t2=1
-3=lib\src\mission.c
+3=config.h
 t3=1
-4=lib\smf_queue.h
-t4=9
-5=lib\src\smf_queue.c
+4=main.h
+t4=1
+5=..\..\..\..\Program Files (x86)\PICC\Devices\18F67J94.h
 t5=1
-6=lib\data_copy.h
+6=lib\flash.h
 t6=1
-7=lib\src\data_copy.c
+7=lib\communication_driver.h
 t7=1
-8=lib\config.h
+8=lib\communication.h
 t8=1
-9=lib\mission_tools.h
+9=lib\data_copy.h
 t9=1
-10=lib\src\mission_tools.c
+10=lib\src\communication_driver.c
 t10=1
-11=lib\define.h
+11=lib\src\uart.c
 t11=1
-12=lib\value.h
+12=lib\value_status.h
 t12=1
-13=lib\src\communication.c
+13=lib\src\uart.c
 t13=1
-14=lib\src\mission.c
-t14=72
-15=lib\smf_queue.h
-t15=72
-16=lib\src\smf_queue.c
+14=lib\value_timer.h
+t14=1
+15=lib\value_receive_buffer.h
+t15=1
+16=lib\value_smf_queue.h
 t16=1
-17=lib\src\data_copy.c
-t17=1
+17=lib\src\smf_queue.c
+t17=5
+18=lib\src\communication_driver.c
+t18=9
+19=lib\value_status.h
+t19=1
+20=lib\src\mission_tools.c
+t20=87
+21=main.c
+t21=87
+22=lib\src\timer.c
+t22=1
+23=lib\timer.h
+t23=1
 [main.c]
 Type=4
+Path=
+FileList=
+BuildTool=
+OptionString=
+AdditionalOptionString=
 
 [defines]
-buildcount=496
+buildcount=529
+enabled=0
+chip=1
+D1=
+V1=
 
 [Documentation]
 1=C:\Users\harut\Desktop\MIS_MCU_CCSC\main Notes.txt
@@ -875,11 +990,19 @@ Count=1
 
 [ExtraIncludes]
 Count=0
-1=main=c:\users\harut\desktop\mis_mcu_ccsc\lib\src\smf_queue.c
+1=main=c:\users\harut\desktop\mis_mcu_ccsc\lib\global.h
 2=main=c:\users\harut\desktop\mis_mcu_ccsc\lib\src\smf_queue.c
 3=main=c:\users\harut\desktop\pic\mis_mcu_ccsc\mission.h
 4=main=c:\users\harut\desktop\pic\mis_mcu_ccsc\mission.h
 5=main=c:\users\harut\desktop\pic\mis_mcu_ccsc\mission.c
+
+[Windows]
+0=0000 %S 0 0 796 451 3 0
+
+[CompilerVersion]
+Fixed=
+[build\main.c]
+Type=4
 [Units]
 Count=1
 1=main (main)

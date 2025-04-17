@@ -54,7 +54,7 @@ static int8 trim_receive_signal_header(unsigned int8 receive_signal[], int8 rece
 
 static int8 get_content_size(unsigned int8 frame_id)
 {
-   for (int i = 0; i < (sizeof(frame_ids) / sizeof(frame_ids[0])); i++)
+   for (int i = 0; i < RECEIVE_FRAME_KINDS; i++)
       if (frame_id == frame_ids[i].id)
          return frame_ids[i].length;
          
