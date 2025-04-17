@@ -19,6 +19,10 @@
 ├─ README.md
 │
 ├─ main.c
+├─ config.h
+│
+├─ mission.c
+├─ mission.h
 │
 ├─ main.ccspjt
 │
@@ -32,22 +36,25 @@
 │
 └─ lib
    ├─ src
-   │  ├─ communication_mis_mcu.c
    │  ├─ communication.c
+   │  ├─ communication_driver.c
    │  ├─ data_copy.c
+   │  ├─ flash.c
    │  ├─ mission_tools.c
-   │  └─ mission.c
+   │  ├─ smf_queue.c
+   │  ├─ timer.c
+   │  └─ uart.c
    │
    ├─ 18F67J94.h
-   ├─ communication_mis_mcu.h
    ├─ communication.h
-   ├─ config.h
+   ├─ communication_driver.h
    ├─ data_copy.h
-   ├─ define.h
+   ├─ flash.h
    ├─ mission_tools.h
-   ├─ mission.h
-   ├─ typedef.h
-   └─ value.h
+   ├─ timer.h
+   ├─ typedef_content.h
+   ├─ uart.h
+   └─ value_status.h
 ```
 - ミッション開発時は[`mission_development.md`](https://github.com/CIT-GARDENs-Organization/MIS_MCU_CCSC/blob/issue-1/docs/development.md)を読むこと
 - ソフトウェアの設計は[`design.md`](https://github.com/CIT-GARDENs-Organization/MIS_MCU_CCSC/blob/issue-1/docs/design.md)に示している
