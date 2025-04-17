@@ -31,6 +31,7 @@ Command make_receive_command(unsigned int8 receive_signal[], int8 receive_signal
 
    command.frame_id = frame_id;
    memcpy(command.content, &frame[1], receive_frame_size-2); // '2' is for Decive ID, Frame ID and CRC
+   fprintf(PC, "content[0] = %X\r\n", command.content[0]);
    command.size = receive_frame_size-2;
    command.is_exist = TRUE;
    fprintf(PC, "End make_recive_command\r\n");

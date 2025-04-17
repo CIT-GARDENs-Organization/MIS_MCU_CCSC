@@ -31,15 +31,19 @@ typedef struct {
     int8 length;
 } FrameID;
 
+
+#include "./frame.h"
+
+
+
 #define CONTENT_MAX 32
 typedef struct {
     int8 frame_id;
     unsigned int8 content[CONTENT_MAX];
     int8 size;
-    int1 is_exist;
 } Command;
 
-#include "./frame.h"
+
 
 // ______ Receive _______
 

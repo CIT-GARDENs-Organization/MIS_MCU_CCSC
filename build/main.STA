@@ -1,0 +1,203 @@
+
+ROM used:   9914/131056 (8%)
+            9914/131056 (8%) including unused fragments
+
+            3.1 Average locations per line
+            15.0 Average locations per statement
+
+RAM used:   334/3578 (9%) at main() level
+            488/3578 (14%) worst case
+
+Stack used: 2 worst case (0 in main + 2 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  136    74  11  main.c
+   30     0   0  main.h
+ 1487     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\18F67J94.h
+   42     0   0  config.h
+   22     0   0  lib\typedef_content.h
+   12     0   0  lib\value_status.h
+   24     0   0  lib\timer.h
+   25    11   2  lib\src\timer.c
+   28     0   0  lib\uart.h
+   26    10   2  lib\src\uart.c
+   22     0   0  mission.h
+   37     0   0  lib\smf_queue.h
+   37    15   2  lib\src\smf_queue.c
+  105     0   0  lib\flash.h
+  596   328  50  lib\src\flash.c
+   53     0   0  lib\mission_tools.h
+   20     0   0  lib\communication_driver.h
+   70     0   0  lib\communication.h
+   30     0   0  lib\frame.h
+  135    71  11  lib\src\communication.c
+   16     3   0  lib\src\communication_driver.c
+  119    57   9  lib\src\mission_tools.c
+  134    74  11  mission.c
+   13     0   0  lib\data_copy.h
+   22    16   2  lib\src\data_copy.c
+----- -----
+ 3241   659 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     42   0    1             @delay_ms1
+0     10   0    0             @PUTCHARI_BIU_1
+0    124   1    0    154  3.5  TIMER0_isr
+0     10   0    0     53  1.2  setup_timer
+0     76   0    2    255  6.1  RDA_isr
+0     46   0    0             @const994
+0     46   0    3             @PSTRINGC_9600_31771_31770
+0      6   0    0     17  0.8  setup_uart_to_boss
+0     48   0    6    107  2.6  clear_receive_signal
+0     28   0    0             @MEMSET
+0    314   2   11    465  6.3  enqueue_smf_data
+0     28   0    0             @const1019
+0     88   0    2    268  6.1  dequeue_smf_data
+0     26   0    0             @const1020
+0     20   0    0     52  1.1  is_empty_smf_data
+0     14   0    0             @const1109
+0     10   0    0             @const1112
+0     76   0    2             @PRINTF_X_9600_31771_31770
+0     20   0    0             @const1119
+0     20   0    0             @const1120
+0     32   0    0             @const1125
+0     16   0    0             @const1127
+0     30   0    0             @const1128
+0     32   0    0             @const1133
+0     16   0    0             @const1135
+0     42   0    0             @const1136
+0     32   0    0             @const1141
+0     16   0    0             @const1143
+0     40   0    0             @const1144
+0     16   0    0             @const1155
+0     24   0    0             @const1156
+0     16   0    0             @const1162
+0     24   0    0             @const1163
+0    570   3   49   1532  9.5  make_receive_command
+0     34   0    0             @const1209
+0     10   0    0             @const1215
+0     26   0    0             @const1222
+0    144   1    5    387  7.3  trim_receive_signal_header
+0     22   0    0             @const1224
+0     18   0    0    387  7.3  @const1225
+0    142   1    4    295  7.4  get_content_size
+0     36   0    0    387  7.3  @const1227
+0     52   0    4    295  7.4  @PSTRINGCN_9600_31771_31770
+0    210   1    6    356  5.9  check_crc
+0     18   0    0    356  5.9  @const1232
+0     24   0    0             @const1233
+0     24   0    0    356  5.9  @const1234
+0    166   1    1    194  3.4  check_device_id
+0     34   0    0    194  3.4  @const1235
+0     24   0    0    348  4.5  @const1236
+0     24   0    0    194  3.4  @const1237
+0    128   1   25    457  5.9  transmit_command
+0    142   1    6    348  4.5  transmit
+0     22   0    0    348  4.5  @const1242
+0     52   0    6    175  5.5  calc_crc8
+0     58   0   38     88  3.5  make_command
+0     18   0    0     33  1.3  transmit_ack
+0     22   0    0     39  1.4  transmit_status
+0     10   0    0     43  1.8  get_executed_mission
+0     84   0   11    205  5.7  is_executed_mission
+0    102   1   12    178  4.7  add_executed_mission
+0     36   0    0    178  4.7  @const1274
+0    520   3   75   1320  9.8  req_use_smf
+0     36   0    0   1320  9.8  @const1275
+0     56   0    0             @const1278
+0     26   0    0   1320  9.8  @const1281
+0     26   0    0     17  1.3  @const1283
+0     28   0    0     17  1.3  @const1284
+0     56   0    0     83  2.9  @const1285
+0     34   0    0     35  2.1  @const1286
+0      8   0    0     17  1.3  finished_use_smf
+0     60   0   11     83  2.9  executed_mission_pop
+0     16   0    0     44  1.6  check_and_respond_to_boss
+0    326   2    5    603  7.7  execute_mission
+0     40   0    0    603  7.7  @const1301
+0     44   0    3     44  1.6  @DIV88
+0    204   1    6    603  7.7  @PRINTF_D_9600_31771_31770
+0     70   0    0    972  5.8  @const1308
+0     20   0    0    972  5.8  @const1309
+0     24   0    0             @const1310
+0     70   0    0             @const1311
+0    432   2   29    972  5.8  example_00
+0     20   0    0    972  5.8  @const1312
+0     14   0    0             @const1313
+0     52   0    0             @const1317
+0     10   0    0             @const1318
+0      4   0    0    552  4.4  @const1321
+0     22   0    0             @const1322
+0     18   0    0             @const1327
+0    280   1    5    552  4.4  example_01
+0     20   0    0    552  4.4  @const1328
+0     14   0    0             @const1329
+0     34   0    0             @const1333
+0     10   0    0    952  5.2  @const1334
+0     18   0    0             @const1338
+0    428   2    6    952  5.2  example_02
+0     20   0    0    952  5.2  @const1339
+0     14   0    0             @const1340
+0     66   0    0             @const1344
+0     14   0    0             @const1345
+0     14   0    0             @const1349
+0     42   0    0    603  4.2  @const1350
+0     26   0    0             @const1353
+0     18   0    0             @const1354
+0    652   3    6    603  4.2  copy_data
+0     32   0    0    603  4.2  @const1357
+0     28   0    0             @const1358
+0     24   0    0             @const1359
+0     10   0    0             @const1360
+0      4   0    0             @const1364
+0     68   0    0   1078  8.2  @const1365
+0     82   0    0    125  1.6  initialize
+0     16   0    0    125  1.6  @const1367
+0     14   0    0             @const1368
+0    520   3    4   1100  8.2  execute_command
+0     26   0    0   1100  8.2  @const1371
+0     22   0    0             @const1372
+0     26   0    0             @const1373
+0     20   0    0             @const1374
+0     24   0    0    990  8.3  @const1375
+0     30   0    0             @const1376
+0     28   0    0             @const1377
+0     24   0    0             @const1378
+0     26   0    0   1458  8.9  @const1379
+0     14   0    0             @const1380
+0     14   0    0             @const1381
+0    960   5   40   1458  8.9  MAIN
+0      6   0    0   1458  8.9  @const1385
+0     36   0    0             @const1390
+0     14   0    0             @const1393
+0     14   0    0             @const1394
+0     10   0    0             @const1395
+0     64   0    0             @const1399
+0     12   0    0             @const1401
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               68
+    Statements              659
+    Comments                633
+    Volume (V)              65856
+    Difficulty (D)          344.7
+    Effort to implement (E) 22698358
+    Time to implement (T)   350 hours, 17 minutes
+    Est Delivered Bugs (B)  27
+    Cyclomatic Complexity   157
+    Maintainability (MI)    48
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00004     6  0  
+00006-00006     0  2  
+00008-000C8   194  0  
+000CA-0FFFE  9714  55620  
+10000-1FFEE     0  65520  
+
+
+

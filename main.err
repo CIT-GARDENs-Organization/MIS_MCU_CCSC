@@ -1,0 +1,102 @@
+Compiling C:\Users\harut\Desktop\MIS_MCU_CCSC\main on 17-4-25 at 13:59
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1280(1,2): Illegal C character in input file  0x80
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1280(1,2): Illegal C character in input file  0x00
+*** Error 28 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1280(2,6): Expecting an identifier
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x80
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0xFE
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0xCB
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0xFF
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0xFF
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0xFF
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x07
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0xA3
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Illegal C character in input file  0xFA
+*** Error 32 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(1,2): Expecting a , or )
+*** Error 1 "C:\Program Files (x86)\PICC\Devices\18F67J94.h" Line 1281(11,12): Illegal C character in input file  0xC5
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x80
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x7F
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x06
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0xFF
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0xFF
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0xFF
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x06
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(1,2): Illegal C character in input file  0x82
+*** Error 32 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(122,128): Expecting a , or )
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(7,8): Illegal C character in input file  0x08
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(7,8): Illegal C character in input file  0xC3
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(7,8): Illegal C character in input file  0xFA
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(7,8): Illegal C character in input file  0xEC
+*** Error 43 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(7,8): Expecting a declaration
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(12,13): Illegal C character in input file  0xA7
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(12,13): Illegal C character in input file  0x92
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0xE6
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x40
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x03
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x60
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x07
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0xB0
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0xD7
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x01
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x80
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(15,16): Illegal C character in input file  0x08
+*** Error 48 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(12,13): Expecting a (
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(22,23): Illegal C character in input file  0x9F
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(22,23): Illegal C character in input file  0x04
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(22,23): Illegal C character in input file  0x40
+*** Error 43 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(22,23): Expecting a declaration
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(25,26): Illegal C character in input file  0x04
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(25,26): Illegal C character in input file  0xD0
+*** Error 43 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(25,26): Expecting a declaration
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(28,29): Illegal C character in input file  0x04
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(28,29): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(28,29): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(28,29): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(28,29): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(28,29): Illegal C character in input file  0x90
+*** Error 43 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(28,29): Expecting a declaration
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(31,32): Illegal C character in input file  0x04
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(31,32): Illegal C character in input file  0x00
+*** Error 1 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\src\flash.c" Line 37(31,32): Illegal C character in input file  0x00

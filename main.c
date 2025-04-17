@@ -95,6 +95,15 @@ void main()
       if(boss_receive_buffer_size > 0)
       {
          Command command = make_command(boss_receive_buffer, boss_receive_buffer_size);
+         
+         fprintf(PC, "FrameID: %X\r\n", command.frame_id);
+         fprintf(PC, "exist : %d\r\n", command.is_exist);
+         
+         fprintf(PC, "content: ");
+         for(int8 i = 0; i < command.size; i++)
+            fprintf(PC, "%X ", command.content[i]);
+         fprintf(PC, "\r\n");
+         
          clear_receive_signal(boss_receive_buffer, &boss_receive_buffer_size);
             
          if(command.is_exist)
