@@ -1,4 +1,4 @@
-Compiling C:\Users\harut\Desktop\MIS_MCU_CCSC\main on 17-4-25 at 14:03
+Compiling C:\Users\harut\Desktop\MIS_MCU_CCSC\main on 24-4-25 at 12:27
 >>> Warning 216 "C:\Users\harut\Desktop\MIS_MCU_CCSC\main.c" Line 135(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC_9600_31771_31770)
 >>> Warning 202 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\flash.h" Line 46(7,13): Variable never used:   mis_fm
 >>> Warning 202 "C:\Users\harut\Desktop\MIS_MCU_CCSC\lib\flash.h" Line 47(7,10): Variable never used:   smf
