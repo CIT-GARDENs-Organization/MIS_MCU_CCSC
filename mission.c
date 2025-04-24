@@ -131,3 +131,5 @@ void example_02(unsigned int8 parameter[])
       
    fprintf(PC, "End example_02\r\n");
 }
+
+// EOF
