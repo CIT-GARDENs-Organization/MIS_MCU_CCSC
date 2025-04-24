@@ -27,3 +27,5 @@ typedef enum {
 } TransmitFrameId;
 
 #endif
+
+// EOF

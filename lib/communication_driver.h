@@ -17,3 +17,5 @@ int1 req_use_smf();
 #include "./src/communication_driver.c"
 
 #endif
+
+// EOF

@@ -593,3 +593,5 @@ void write_data_bytes(Flash flash_stream, unsigned int32 write_start_address, in
    #endif
    return;
 }
+
+// EOF

@@ -22,3 +22,5 @@ void setup_timer()
    setup_timer_0(T0_INTERNAL | T0_DIV_256 | RTCC_8_BIT);
    enable_interrupts(INT_TIMER0);
 }
+
+// EOF

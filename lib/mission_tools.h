@@ -50,3 +50,5 @@ void finished_use_smf();
 #include "./src/mission_tools.c"
 
 #endif
+
+// EOF

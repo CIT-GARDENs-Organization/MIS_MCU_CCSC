@@ -34,3 +34,5 @@ int1 is_empty_smf_data(void)
 {
    return smf_queue.smf_data_head == smf_queue.smf_data_tail;
 }
+
+// EOF

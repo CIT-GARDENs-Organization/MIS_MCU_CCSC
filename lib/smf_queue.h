@@ -34,3 +34,5 @@ int1 is_empty_smf_data(void);
 #include "./src/smf_queue.c"
 
 #endif
+
+// EOF
