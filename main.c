@@ -18,7 +18,7 @@ void initialize(void)
 
 int1 execute_command(Command *command)
 {
-   fprintf(PC, "\r\nStart execute_command\r\n");
+   fprintf(PC, "Start execute_command\r\n");
    
    switch(command->frame_id)
    {
@@ -96,13 +96,11 @@ void main()
       {
          Command command = make_command(boss_receive_buffer, boss_receive_buffer_size);
          
-         fprintf(PC, "FrameID: %X\r\n", command.frame_id);
-         fprintf(PC, "exist : %d\r\n", command.is_exist);
-         
-         fprintf(PC, "content: ");
+         fprintf(PC, "FrameID: %1X\r\n", command.frame_id);
+         fprintf(PC, "payload: ");
          for(int8 i = 0; i < command.size; i++)
             fprintf(PC, "%X ", command.content[i]);
-         fprintf(PC, "\r\n");
+         fprintf(PC, "\r\n\r\n");
          
          clear_receive_signal(boss_receive_buffer, &boss_receive_buffer_size);
             
@@ -133,5 +131,3 @@ void main()
    
    fprintf(PC, "End main\r\n");
 }
-
-// EOF
