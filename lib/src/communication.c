@@ -11,10 +11,6 @@ Command make_receive_command(unsigned int8 receive_signal[], int8 receive_signal
       return command;
       
    unsigned int8 *frame = &receive_signal[frame_start_position];
-   fprintf(PC, "content: ");
-   for(int i = 0; i < 8; i++)
-      fprintf(PC, "%X ", frame[i]);
-   fprintf(PC, "\r\n");
    
    int8 frame_id = frame[0] & 0x0F;
    int8 content_size = get_content_size(frame_id);
@@ -33,7 +29,7 @@ Command make_receive_command(unsigned int8 receive_signal[], int8 receive_signal
    memcpy(command.content, &frame[1], receive_frame_size-2); // '2' is for Decive ID, Frame ID and CRC
    command.size = receive_frame_size-2;
    command.is_exist = TRUE;
-   fprintf(PC, "End make_recive_command\r\n");
+   fprintf(PC, "End make_recive_command\r\n\r\n");
    return command;
 }
 
@@ -131,5 +127,3 @@ static unsigned int8 calc_crc8(unsigned int8 frame[], int8 payload_size)
       crc ^= frame[i++];
    return crc;
 }
-
-// EOF
