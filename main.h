@@ -7,22 +7,25 @@
 // pin assignment etc
 #include "config.h"
 
-// values based on IICD 
-#include "define.h"
 
-// global value
-#include "value.h"
+#include "./lib/typedef_content.h"
 
-// SerialCommunication
-#include "communication.h"
-#include "communication.c"
+#include "./lib/value_status.h"
+
+#include "./lib/timer.h"
+
+#include "./lib/uart.h"
 
 // Missions
-#include "Mission.h"
-#include "Mission.c"
+#include "mission.h"
+
+// SerialCommunication
+#include "./lib/communication_driver.h"
 
 // Copy to SMF
-#include "DataCopy.h"
-#include "DataCopy.c"
+#include "./lib/data_copy.h"
+
 
 #endif
+
+// EOF

@@ -1,53 +1,14 @@
-#include "main.h"
+#include "./main.h"
 
-//____________ intrrupts ____________
-#INT_TIMER0
-void TIMER0_isr(void) 
-{
-   // every 0.1 sec interrupts
-   set_timer0(100);
-
-   if (++dsec >= 100)
-   {
-      dsec = 0;
-      sec++;
-
-      if (sec >= 86400)
-      {
-         sec -= 86400;
-         day++;
-      }
-   }
-}
-
-#INT_RDA
-void RDA_isr(void)
-{
-   if (status == BUSY || status == COPYING)
-   {
-      fgetc(BOSS);
-      fputc(0xAA, BOSS);
-   }
-   else
-   {
-      if (receive_signal_size < 16)
-         receive_signal[receive_signal_size++] = fgetc(BOSS);
-      else
-         fgetc(BOSS);
-   }
-}
-
-
-
-//____________ initialize ____________
 
 void initialize(void)
 {
    fprintf(PC, "Start setting\r\n");
    setup_lcd(LCD_DISABLED);
-   setup_timer_0(T0_INTERNAL | T0_DIV_256 | RTCC_8_BIT);
-   enable_interrupts(INT_RDA);
-   enable_interrupts(INT_TIMER0);
+   
+   setup_timer();
+   setup_uart_to_boss();
+
    enable_interrupts(GLOBAL);
    fprintf(PC, "End setting\r\n");
 }
@@ -57,28 +18,33 @@ void initialize(void)
 
 int1 execute_command(Command *command)
 {
-   fprintf(PC, "\r\nStart execute_command\r\n");
+   fprintf(PC, "Start execute_command\r\n");
    
    switch(command->frame_id)
    {
       case UPLINK_COMMAND:
          fprintf(PC, "\t-> Uplink command\r\n");
          fprintf(PC, "\t   Transmit Acknolegde\r\n");
-         transmit_command(ACK, 0, 0);
+         transmit_ack();
 
-         status = BUSY;
+         status = EXECUTING_MISSION;
          execute_mission(command->content);
-         if (!is_empty_smf_data())
-            status = SMF_COPY_REQ;
+         if (is_empty_smf_data())
+         {
+            if (duration_sec < sec)
+               status = FINISHED;
+            else
+               status = IDLE;
+         }
          else
-            status = FINISHED;
+            status = SMF_USE_REQ;
          break;
       
       case STATUS_CHECK:
          fprintf(PC, "\t-> Status check\r\n");
          fprintf(PC, "\t\t-> My status is %d\r\n", status);
          fprintf(PC, "\t   Transmit MIS MCU Status\r\n");
-         transmit_command(MIS_MCU_STATUS, &status, 1);
+         transmit_status();
          if (status == FINISHED)
          {
             fprintf(PC, "finished in status_check\r\n");
@@ -89,7 +55,7 @@ int1 execute_command(Command *command)
       case IS_SMF_AVAILABLE:
          fprintf(PC, "\t-> is SMF available\r\n");
          fprintf(PC, "\t   Transmit Acknolegde\r\n");
-         transmit_command(ACK, 0, 0);
+         transmit_ack();
          if (command->content[0] == ALLOW)
          {
             fprintf(PC, "\t\t-> allowd\r\n");
@@ -115,8 +81,8 @@ void main()
          fprintf(PC, "_");
       fprintf(PC, "\r\n");
    }
-         
    fprintf(PC, "___________Start main__________\r\n\r\n");
+   
    
    initialize();
    
@@ -125,21 +91,35 @@ void main()
    //Start loop
    while(!is_finished)
    {
-      //receive anything signal
-      if(receive_signal_size > 0)
+      // handle from boss commands
+      if(boss_receive_buffer_size > 0)
       {
-         Command command = make_receive_command(receive_signal, receive_signal_size);
-         clear_receive_signal(receive_signal, &receive_signal_size);
+         Command command = make_command(boss_receive_buffer, boss_receive_buffer_size);
+         
+         fprintf(PC, "FrameID: %1X\r\n", command.frame_id);
+         fprintf(PC, "payload: ");
+         for(int8 i = 0; i < command.size; i++)
+            fprintf(PC, "%X ", command.content[i]);
+         fprintf(PC, "\r\n\r\n");
+         
+         clear_receive_signal(boss_receive_buffer, &boss_receive_buffer_size);
             
          if(command.is_exist)
             is_finished = execute_command(&command); 
       }
       
+      // check mis mcu duration seconds (used in mission.c \ void continue_mis_mcu(int16 duration_sec))
+      if (status == IDLE)
+         if (duration_sec < sec && is_empty_smf_data())
+            status = FINISHED;
+      
+      // check `is break while loop`
       if(is_finished == TRUE)
          break;
          
       delay_ms(400);
    }
+   
    
    fprintf(PC, "\r\n\r\n======\r\n\r\nFinished process.\r\nWait for BOSS PIC turn off me");
    
