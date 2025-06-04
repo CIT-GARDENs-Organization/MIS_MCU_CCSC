@@ -12,9 +12,9 @@
     - **19行目** `#SELF_DEVICE_ID` を、6 ~ 17行目の定数の中から適切な機器名に選択する。
 
   - `smf_queue.h` 
-    - **7行目** → `APRS_DATA`のように、データ種を記入する(MemoryMapを参照すること)
+    - **7行目** → `APRS_DATA`のように、データ種を記入する([MemoryMap](https://github.com/CIT-GARDENs-Organization/MIS_MCU_CCSC/blob/main/docs/memory_map.png)を参照すること)
   - `smf_queue.c`
-    - **39行目** → 先に記入したデータ種ごとに、SMF内のそのデータの開始アドレス、終了アドレス、mission_flagを記入する。(MemoryMapを参照すること)
+    - **39行目** → 先に記入したデータ種ごとに、SMF内のそのデータの開始アドレス、終了アドレス、mission_flagを記入する。([MemoryMap](https://github.com/CIT-GARDENs-Organization/MIS_MCU_CCSC/blob/main/docs/memory_map.png)を参照すること)
 
 
 2. ミッションの実装
