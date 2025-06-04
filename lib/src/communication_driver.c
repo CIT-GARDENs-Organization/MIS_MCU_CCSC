@@ -11,7 +11,6 @@ void transmit_ack()
 
 void transmit_status()
 {
-   transmit_command(MIS_MCU_STATUS, &status, 1);
+   transmit_command(MIS_MCU_STATUS, &status, 4);
 }
 
-// EOF

@@ -20,4 +20,3 @@ typedef enum {
 
 #endif
 
-// EOF

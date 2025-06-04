@@ -3,18 +3,19 @@
 
 // __________ device IDs ______________
 
-#define MAIN_PIC  0x00
-#define COM_PIC   0x01
-#define RESET_PIC 0x02
-#define FAB_PIC   0x03
-#define BOSS_PIC  0x04
-#define APRS_PIC  0x05
-#define CAM_MCU   0x06
-#define CHO_MCU   0x07
-#define NAKA_PIC  0x08
-#define SATO_PIC  0x09
-#define BHU_MCU   0x0A
-#define CIGS_PIC  0x0B
+#define GS        0x00
+#define MAIN_PIC  0x01
+#define COM_PIC   0x02
+#define RESET_PIC 0x03
+#define FAB_PIC   0x04
+#define BOSS_PIC  0x05
+#define APRS_PIC  0x06
+#define CAM_MCU   0x07
+#define CHO_MCU   0x08
+#define NAKA_PIC  0x09
+#define SATO_PIC  0x0A
+#define BHU_MCU   0x0B
+#define CIGS_PIC  0x0C
 
 #define SELF_DEVICE_ID APRS_PIC // <- change to your device name
 
@@ -68,4 +69,3 @@ static unsigned int8 calc_crc8(unsigned int8 frame[], int8 payload_size);
 
 #endif
 
-// EOF

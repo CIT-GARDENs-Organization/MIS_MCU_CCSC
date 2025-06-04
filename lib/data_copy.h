@@ -11,4 +11,3 @@ void copy_data(void);
 
 #endif
 
-// EOF

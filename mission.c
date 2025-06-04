@@ -5,15 +5,7 @@ void execute_mission(unsigned int8 *content)
    // record to executed mission list
    unsigned int8 command_id = content[0];
    unsigned int8 *parameter = &content[1];
-   
-   if (is_executed_mission(command_id))
-   {
-      fprintf(PC, "\r\nThis  mission is executed\r\n\t-> 0x%d\r\n", command_id);
-      return;
-   }
-   
-   add_executed_mission(command_id);
-   
+      
    // execution mission
    fprintf(PC, "\r\n______________________________\r\n_____Start execute_mission_____\r\n\r\n");
    fprintf(PC, "Command ID: %X\r\n\r\n", command_id);
@@ -45,10 +37,7 @@ void example_00(unsigned int8 parameter[])
    for(int8 i = 0; i < PARAMETER_LENGTH; i++)
       fprintf(PC, "%X ", parameter[i]);
    fprintf(PC, "\r\n");
-   
-   // accept continuous execute
-   executed_mission_pop();
-   fprintf(PC, "(This mission can execute many time as you want)\r\n");
+
     
    // anything do
    fprintf(PC, "executing");
@@ -62,17 +51,13 @@ void example_00(unsigned int8 parameter[])
    
    // order Copy to SMF data
    fprintf(PC, "order Copy smf_data\r\n");
-   unsigned int32 smf_data_destination_address = 0x00103D00; // (in SMF)
-   unsigned int32 fm_data_source_address = 0x00005000; // (in self Flash memory)
-   unsigned int32 data_size = 0x00000080;
    SmfDataStruct data;
-   data.dest = smf_data_destination_address;
-   data.src = fm_data_source_address;
-   data.size = data_size;
+   data.mission_type = APRS_DATA;
+   data.src         = 0x00000000;
+   data.size        = 0x00004234;
    enqueue_smf_data(&data);
    
    fprintf(PC, "End example_00\r\n");
-   
 }
 
 void example_01(unsigned int8 parameter[])
@@ -132,4 +117,3 @@ void example_02(unsigned int8 parameter[])
    fprintf(PC, "End example_02\r\n");
 }
 
-// EOF

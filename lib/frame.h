@@ -22,10 +22,9 @@ volatile FrameID frame_ids[] = {
 // __________ Transmits _____________
 
 typedef enum {
-   MIS_MCU_STATUS = 0x01,
+   MIS_MCU_STATUS = 0x03,
    ACK = 0x0F
 } TransmitFrameId;
 
 #endif
 
-// EOF

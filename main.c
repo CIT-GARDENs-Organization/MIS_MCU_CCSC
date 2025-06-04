@@ -27,25 +27,19 @@ int1 execute_command(Command *command)
          fprintf(PC, "\t   Transmit Acknolegde\r\n");
          transmit_ack();
 
-         status = EXECUTING_MISSION;
+         status[0] = EXECUTING_MISSION;
          execute_mission(command->content);
          if (is_empty_smf_data())
-         {
-            if (duration_sec < sec)
-               status = FINISHED;
-            else
-               status = IDLE;
-         }
+            status[0] = FINISHED;
          else
-            status = SMF_USE_REQ;
+            status[0] = SMF_USE_REQ;
          break;
       
       case STATUS_CHECK:
          fprintf(PC, "\t-> Status check\r\n");
-         fprintf(PC, "\t\t-> My status is %d\r\n", status);
          fprintf(PC, "\t   Transmit MIS MCU Status\r\n");
          transmit_status();
-         if (status == FINISHED)
+         if (status[0] == FINISHED)
          {
             fprintf(PC, "finished in status_check\r\n");
             return TRUE;
@@ -59,9 +53,9 @@ int1 execute_command(Command *command)
          if (command->content[0] == ALLOW)
          {
             fprintf(PC, "\t\t-> allowd\r\n");
-            status = COPYING;
+            status[0] = COPYING;
             copy_data();
-            status = FINISHED;
+            status[0] = FINISHED;
          }
          else
             fprintf(PC, "\t\t-> denyed\r\n");
@@ -91,7 +85,6 @@ void main()
    //Start loop
    while(!is_finished)
    {
-      // handle from boss commands
       if(boss_receive_buffer_size > 0)
       {
          Command command = make_command(boss_receive_buffer, boss_receive_buffer_size);
@@ -108,17 +101,22 @@ void main()
             is_finished = execute_command(&command); 
       }
       
-      // check mis mcu duration seconds (used in mission.c \ void continue_mis_mcu(int16 duration_sec))
-      if (status == IDLE)
-         if (duration_sec < sec && is_empty_smf_data())
-            status = FINISHED;
-      
       // check `is break while loop`
       if(is_finished == TRUE)
          break;
          
-      delay_ms(400);
+      delay_ms(400); // this is meaning less number
    }
+   
+   fprintf(PC, "\r\n\r\n___________End main__________\r\n\r\n");
+   for (int8 i = 0; i < 3; i++)
+   {
+      for (int8 j = 0; j < 31; j++)
+         fprintf(PC, "_");
+      fprintf(PC, "\r\n");
+   }
+   fprintf(PC, "\r\n\r\n");
+
    
    
    fprintf(PC, "\r\n\r\n======\r\n\r\nFinished process.\r\nWait for BOSS PIC turn off me");
@@ -131,3 +129,4 @@ void main()
    
    fprintf(PC, "End main\r\n");
 }
+

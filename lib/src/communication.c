@@ -127,3 +127,4 @@ static unsigned int8 calc_crc8(unsigned int8 frame[], int8 payload_size)
       crc ^= frame[i++];
    return crc;
 }
+

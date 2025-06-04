@@ -46,23 +46,7 @@ typedef struct select_stream_to_flash{
 Flash mis_fm = {SPI_0, MT25QL128ABA, SPI0_CS};
 Flash smf = {SPI_1, MT25QL01GBBB, SPI1_CS};
 
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-////////////////////////////////CMD List///////////////////////////////////////
-#define CMD_READ_ID                     0x9F
-#define CMD_READ_STATUS_REGISTER        0x05
-#define CMD_READ                        0x03//for MT25QL128ABA
-#define CMD_4BYTE_READ                  0x13//for MT25QL01GBBB
-#define CMD_WRITE_ENABLE                0x06
-#define CMD_PAGE_PROGRAM                0x02//for MT25QL128ABA
-#define CMD_4BYTE_PAGE_PROGRAM          0x12//for MT25QL01GBBB
-#define CMD_SUBSECTOR_4KB_ERASE         0x20//for MT25QL128ABA
-#define CMD_4BYTE_SUBSECTOR_4KB_ERASE   0x21//for MT25QL01GBBB
-#define CMD_SUBSECTOR_32KB_ERASE        0x52//for MT25QL128ABA
-#define CMD_4BYTE_SUBSECTOR_32KB_ERASE  0x5C//for MT25QL01GBBB
-#define CMD_SECTOR_ERASE                0xD8//for MT25QL128ABA
-#define CMD_4BYTE_SECTOR_ERASE          0xDC//for MT25QL01GBBB
+
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
@@ -95,7 +79,7 @@ void read_data_bytes(Flash flash_stream, unsigned int32 read_start_address, int8
 void write_data_byte(Flash flash_stream, unsigned int32 write_address,int8 write_data);                             
 ///////////////////////////////////////////////////////////////////////////////
 //write multi Bytes data(max256 Byte) in "write_data" to flash
-void write_data_bytes(Flash flash_stream, unsigned int32 write_start_address, int8 *write_data, unsigned int16 write_amount);              
+void write_data_bytes(Flash flash_stream, unsigned int32 write_start_address, int8 *write_data, unsigned int16 write_amount);               
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////end of GDNS_226_FlashOperation.h///////////////////////////
@@ -103,4 +87,3 @@ void write_data_bytes(Flash flash_stream, unsigned int32 write_start_address, in
 
 #endif
 
-// EOF
