@@ -8,7 +8,14 @@
     - **`#use`** → それぞれ適切なものに変更する
     - **`define`** → SPIのCSピンを適切なものに変更する
   
-  - `communication.h` **19行目** → `#SELF_DEVICE_ID` を、6 ~ 17行目の定数の中から適切な機器名に選択する。
+  - `communication.h`
+    - **19行目** `#SELF_DEVICE_ID` を、6 ~ 17行目の定数の中から適切な機器名に選択する。
+
+  - `smf_queue.h` 
+    - **7行目** → `APRS_DATA`のように、データ種を記入する(MemoryMapを参照すること)
+  - `smf_queue.c`
+    - **39行目** → 先に記入したデータ種ごとに、SMF内のそのデータの開始アドレス、終了アドレス、mission_flagを記入する。(MemoryMapを参照すること)
+
 
 2. ミッションの実装
   - `missoin.h` **20行目以降** → 実装するミッションの関数名を記入する。返り値は`void`、引数は`(unsigned int8 parameter[])`である。
@@ -44,17 +51,15 @@
 ## **mission.c内で使用可能な機能一覧**
 ### 一覧
 - `mission_tools.h`
-  - `void check_and_respond_to_boss()`
+  - `void check_and_respond_to_boss()` (**重要**)
   - `int1 req_use_smf()`
   - `void finished_use_smf()`
-  - `void executed_mission_pop()`
-  - `void continue_mis_mcu(int16 duration_second)`
 
 - `smf_queue.h`
   - `void enqueue_smf_data(SmfDataStruct *data)`
 
 - `flash.h`
-  - (Flash構造体の引数は`mis_fm`か`smf`を指定する)
+  - (`Flash`構造体の引数は`mis_fm`か`smf`を指定する)
   - `void flash_setting(Flash flash_stream);`
   - `int8 status_register(Flash flash_stream);`
   - `int8 read_id(Flash flash_stream);`
@@ -65,6 +70,8 @@
   - `void read_data_bytes(Flash flash_stream, unsigned int32 read_start_address, int8 *read_data, unsigned int32 read_amount);`    
   - `void write_data_byte(Flash flash_stream, unsigned int32 write_address,int8 write_data);`
   - `void write_data_bytes(Flash flash_stream, unsigned int32 write_start_address, int8 *write_data, unsigned int16 write_amount);`
+
+
 ### 説明
 - BOSS PICとの通信
   - `void check_and_respond_to_boss()`を実行する
@@ -76,7 +83,7 @@
   - 例
   ```c
   SmfDataStruct data;
-  data.dest = 0x00000000; // コピー先のSMFのアドレス
+  data.mission_type = APRD_DATA; // コピーする目的のデータ種別
   data.src = 0x00000000; // コピー元のMIS_FMのアドレス
   data.size = 0x00000000; // コピーするデータのサイズ
   enqueue_smf_data(&data); // SMFへのデータコピーを実行する
@@ -89,20 +96,8 @@
     - 現在は例外処理として10分間この関数が実行されると`FALSE`を返すようにしている。
     - 何度実行しても構わない
   - **SMFの使用終了後は必ず`void finished_use_smf()`を実行すること。**
-
-
-- ミッション連続実行系
-  - `void executed_mission_pop()`
-    - MIS MCUは、地上局からの連続アップリンクで誤動作しないようにするため同じミッションをその機器の起動中に実行しないようにしている
-    - そのため、同じミッションを連続で実行したい場合はこの関数を実行する必要がある
-  - `void continue_mis_mcu(int16 duration_second)`
-    - ミッション終了後、SMFのキューの中身がなくてもMIS MCUを起動させておくための関数
-    - 引数に指定した秒数だけMIS MCUを起動させることができる
-
 ---
 
 
-## 今後の更新予定 (作業担当者: GARDENs)
-1. SMFへのコピー機能の実装
-   - 現在はprint出力でSMFへのコピーを模しているが、今後実際に機能を開発し統一されたSMFへのコピー機能を搭載する。
-2. バス系からの衛星内時間配布機能
+## 今後の更新予定 (作担当者: GARDENs)
+1. バス系からの衛星内時間配布機能

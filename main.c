@@ -30,12 +30,7 @@ int1 execute_command(Command *command)
          status[0] = EXECUTING_MISSION;
          execute_mission(command->content);
          if (is_empty_smf_data())
-         {
-            if (duration_sec < sec)
-               status[0] = FINISHED;
-            else
-               status[0] = IDLE;
-         }
+            status[0] = FINISHED;
          else
             status[0] = SMF_USE_REQ;
          break;
@@ -106,16 +101,11 @@ void main()
             is_finished = execute_command(&command); 
       }
       
-      // check mis mcu duration seconds (used in mission.c \ void continue_mis_mcu(int16 duration_sec))
-      if (status == IDLE)
-         if (duration_sec < sec && is_empty_smf_data())
-            status[0] = FINISHED;
-      
       // check `is break while loop`
       if(is_finished == TRUE)
          break;
          
-      delay_ms(400);
+      delay_ms(400); // this is meaning less number
    }
    
    fprintf(PC, "\r\n\r\n___________End main__________\r\n\r\n");

@@ -118,13 +118,8 @@ const FrameID frame_ids[RECEIVE_FRAME_KINDS] = {
 ```
 
 ### mission.h
-- 実行済みミッション
-    - unsigned int8 executed_mission[EXECUTED_MISSION_SIZE]
-    - int8 executed_mission_count
-
 - 状態管理
     - int1 is_use_smf_req_in_mission：ミッション中にSMF使用要求があったか
-    - unsigned int16 duration_sec：ミッション完了後の継続時間
 
 ### smf_queue.h
 - SMFへのデータコピーキュー

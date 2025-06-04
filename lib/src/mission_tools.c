@@ -1,31 +1,3 @@
-ExecutedMission get_executed_mission()
-{
-   static ExecutedMission executed_mission = {0};
-   return executed_mission;
-}
-
-int1 is_executed_mission(unsigned int8 command_id)
-{
-   ExecutedMission executed_mission = get_executed_mission();
-   
-   for (int i = 0; i < executed_mission.executed_mission_count; i++)
-      if (command_id == executed_mission.executed_mission[i])
-         return TRUE;
-      
-   return FALSE;
-}
-
-void add_executed_mission(unsigned int8 command_id)
-{
-   ExecutedMission executed_mission = get_executed_mission();
-   
-   if (executed_mission.executed_mission_count != EXECUTED_MISSION_SIZE)
-      executed_mission.executed_mission[executed_mission.executed_mission_count++] = command_id;
-   else
-      fprintf(PC, "!!!overflow executed_mission list\r\n");
-}
-
-
 int1 req_use_smf()
 {
    fprintf(PC, "Start SMF using reqest seaquence\r\n");
@@ -95,17 +67,6 @@ NEXT:
 void finished_use_smf()
 {
    status[0] = EXECUTING_MISSION;
-}
-
-void executed_mission_pop(void)
-{
-   ExecutedMission executed_mission = get_executed_mission();
-   executed_mission.executed_mission[executed_mission.executed_mission_count--] = 0x00;
-}
-
-void continue_mis_mcu(int16 duration_second)
-{  
-   duration_sec = duration_second + sec;
 }
 
 void check_and_respond_to_boss()

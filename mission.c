@@ -5,15 +5,7 @@ void execute_mission(unsigned int8 *content)
    // record to executed mission list
    unsigned int8 command_id = content[0];
    unsigned int8 *parameter = &content[1];
-   
-   if (is_executed_mission(command_id))
-   {
-      fprintf(PC, "\r\nThis  mission is executed\r\n\t-> 0x%d\r\n", command_id);
-      return;
-   }
-   
-   add_executed_mission(command_id);
-   
+      
    // execution mission
    fprintf(PC, "\r\n______________________________\r\n_____Start execute_mission_____\r\n\r\n");
    fprintf(PC, "Command ID: %X\r\n\r\n", command_id);
@@ -45,10 +37,7 @@ void example_00(unsigned int8 parameter[])
    for(int8 i = 0; i < PARAMETER_LENGTH; i++)
       fprintf(PC, "%X ", parameter[i]);
    fprintf(PC, "\r\n");
-   
-   // accept continuous execute
-   executed_mission_pop();
-   fprintf(PC, "(This mission can execute many time as you want)\r\n");
+
     
    // anything do
    fprintf(PC, "executing");
