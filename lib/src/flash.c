@@ -4,6 +4,22 @@
 /////////////////////////////last editor:T Kawai///////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////redefinition of spi communication///////////////////////
+#include "../flash.h"
+
+#define CMD_READ_ID                     0x9F
+#define CMD_READ_STATUS_REGISTER        0x05
+#define CMD_READ                        0x03//for MT25QL128ABA
+#define CMD_4BYTE_READ                  0x13//for MT25QL01GBBB
+#define CMD_WRITE_ENABLE                0x06
+#define CMD_PAGE_PROGRAM                0x02//for MT25QL128ABA
+#define CMD_4BYTE_PAGE_PROGRAM          0x12//for MT25QL01GBBB
+#define CMD_SUBSECTOR_4KB_ERASE         0x20//for MT25QL128ABA
+#define CMD_4BYTE_SUBSECTOR_4KB_ERASE   0x21//for MT25QL01GBBB
+#define CMD_SUBSECTOR_32KB_ERASE        0x52//for MT25QL128ABA
+#define CMD_4BYTE_SUBSECTOR_32KB_ERASE  0x5C//for MT25QL01GBBB
+#define CMD_SECTOR_ERASE                0xD8//for MT25QL128ABA
+#define CMD_4BYTE_SECTOR_ERASE          0xDC//for MT25QL01GBBB
+
 //send multi bytes
 void spi_xfer_select_stream(Flash flash_stream, int8 *write_data, unsigned int16 write_amount){
    switch(flash_stream.spi_stream_id){
@@ -594,4 +610,3 @@ void write_data_bytes(Flash flash_stream, unsigned int32 write_start_address, in
    return;
 }
 
-// EOF

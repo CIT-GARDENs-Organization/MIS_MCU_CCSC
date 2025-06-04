@@ -23,4 +23,3 @@ void setup_timer()
    enable_interrupts(INT_TIMER0);
 }
 
-// EOF

@@ -20,4 +20,3 @@ void example_02(unsigned int8 parameter[]);
 
 #endif
 
-// EOF

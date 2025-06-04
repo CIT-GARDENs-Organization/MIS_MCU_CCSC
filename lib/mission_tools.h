@@ -51,4 +51,3 @@ void finished_use_smf();
 
 #endif
 
-// EOF

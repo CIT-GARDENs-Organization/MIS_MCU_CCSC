@@ -18,4 +18,3 @@ int1 req_use_smf();
 
 #endif
 
-// EOF

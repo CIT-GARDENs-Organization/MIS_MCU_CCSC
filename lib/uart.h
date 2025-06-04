@@ -26,4 +26,3 @@ void clear_receive_signal(unsigned int8 receive_signal[], int8 *receive_signal_s
 
 #endif
 
-// EOF

@@ -5,9 +5,8 @@
 
 volatile unsigned int16 duration_sec = 0;
 volatile int1 is_use_smf_req_in_mission = FALSE;
-volatile int8 status = IDLE;
+volatile int8 status[4] = {IDLE, 0, 0, 0};
 
 
 #endif
 
-// EOF

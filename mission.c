@@ -62,17 +62,13 @@ void example_00(unsigned int8 parameter[])
    
    // order Copy to SMF data
    fprintf(PC, "order Copy smf_data\r\n");
-   unsigned int32 smf_data_destination_address = 0x00103D00; // (in SMF)
-   unsigned int32 fm_data_source_address = 0x00005000; // (in self Flash memory)
-   unsigned int32 data_size = 0x00000080;
    SmfDataStruct data;
-   data.dest = smf_data_destination_address;
-   data.src = fm_data_source_address;
-   data.size = data_size;
+   data.mission_type = APRS_DATA;
+   data.src         = 0x00000000;
+   data.size        = 0x00004234;
    enqueue_smf_data(&data);
    
    fprintf(PC, "End example_00\r\n");
-   
 }
 
 void example_01(unsigned int8 parameter[])
@@ -132,4 +128,3 @@ void example_02(unsigned int8 parameter[])
    fprintf(PC, "End example_02\r\n");
 }
 
-// EOF
