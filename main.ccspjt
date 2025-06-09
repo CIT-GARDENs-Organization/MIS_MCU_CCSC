@@ -925,16 +925,16 @@ D38_L24=[47341]Project Opened.
 
 [Opened Files]
 1=main.c
-t1=104
+t1=1
 Count=24
 2=lib\src\data_copy.c
 t2=1
 3=lib\flash.h
 t3=1
 4=lib\smf_queue.h
-t4=1
+t4=33
 5=lib\src\smf_queue.c
-t5=1
+t5=35
 6=mission.c
 t6=1
 7=lib\src\communication.c
@@ -956,7 +956,7 @@ t14=1
 15=lib\communication.h
 t15=1
 16=lib\data_copy.h
-t16=5
+t16=1
 17=config.h
 t17=1
 18=lib\src\flash.c
@@ -968,7 +968,7 @@ t20=1
 21=..\..\..\..\Program Files (x86)\PICC\Devices\18F67J94.h
 t21=1
 22=lib\mission_tools.h
-t22=3
+t22=1
 23=lib\typedef_content.h
 t23=1
 24=lib\src\timer.c
@@ -982,7 +982,7 @@ OptionString=
 AdditionalOptionString=
 
 [defines]
-buildcount=660
+buildcount=675
 enabled=0
 chip=1
 D1=
