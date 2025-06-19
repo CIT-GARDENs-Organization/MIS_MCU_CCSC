@@ -27,7 +27,7 @@ void copy_data(void)
       fprintf(PC, "In SMF mission data start   address: %LX\r\n", mis_start_address);
       fprintf(PC, "In SMF mission data end     address: %LX\r\n", mis_end_address);
       fprintf(PC, "In MIS FM Write source data address: %LX\r\n", write_src);
-      fprintf(PC, "In MIS FM Write data size          : %lu (0x%lx)\r\n\r\n", write_size, write_size);
+      fprintf(PC, "In MIS FM Write data size              : %lu (0x%lx)\r\n\r\n", write_size, write_size);
       
       
       // flash setting
@@ -97,10 +97,10 @@ void copy_data(void)
        // write size area
        fprintf(PC, "Update size area\r\n");
        subsector_4kByte_erase(SMF, mis_start_address);
-       write_data_byte(SMF, mis_start_address + 0, (used_size >> 0)  & 0xFF);
-       write_data_byte(SMF, mis_start_address + 1, (used_size >> 8)  & 0xFF);
-       write_data_byte(SMF, mis_start_address + 2, (used_size >> 16) & 0xFF);
-       write_data_byte(SMF, mis_start_address + 3, (used_size >> 24) & 0xFF);
+       write_data_byte(SMF, mis_start_address + 0, (used_size >> 24)  & 0xFF);
+       write_data_byte(SMF, mis_start_address + 1, (used_size >> 16)  & 0xFF);
+       write_data_byte(SMF, mis_start_address + 2, (used_size >> 8 ) & 0xFF);
+       write_data_byte(SMF, mis_start_address + 3, (used_size >> 0 ) & 0xFF);
        write_data_byte(SMF, mis_start_address + 4, loop_count);
         fprintf(PC, "used_size = %ld\r\n", used_size);
         fprintf(PC, "loop_count = %u\r\n\r\n", loop_count);
