@@ -79,13 +79,8 @@ void main()
    
    
    initialize();
-   
    int1 is_finished = FALSE;
-   read_id(smf);
    
-   int8 a[8] = {0}; 
-   example_00(a);
-   copy_data();
 
    //Start loop
    while(!is_finished)
