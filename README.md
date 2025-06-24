@@ -56,6 +56,6 @@
    ├─ uart.h
    └─ value_status.h
 ```
-- ミッション開発時は[`mission_development.md`](https://github.com/CIT-GARDENs-Organization/MIS_MCU_CCSC/blob/issue-1/docs/development.md)を読むこと
-- ソフトウェアの設計は[`design.md`](https://github.com/CIT-GARDENs-Organization/MIS_MCU_CCSC/blob/issue-1/docs/design.md)に示している
+- ミッション開発時は[`mission_development.md`](https://github.com/CIT-GARDENs-Organization/MIS_MCU_CCSC/blob/main/docs/mission_development.md)を読むこと
+- ソフトウェアの設計は[`design.md`](https://github.com/CIT-GARDENs-Organization/MIS_MCU_CCSC/blob/main/docs/design.md)に示している
    - ライブラリの設計は各`library_XXX.md`に示している
